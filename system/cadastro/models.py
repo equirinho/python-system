@@ -12,11 +12,12 @@ class Cadastro(models.Model):
     municipio= models.CharField(max_length=40)
     cep= models.CharField(max_length=8)
     rua= models.CharField(max_length=40)
-    numero= mmodels.CharField(max_length=4)
+    numero= models.CharField(max_length=4)
     complemento = models.CharField(max_length=100)
     cpf= models.CharField(max_length=11)  
     pis= models.CharField(max_length=11)
     senha= models.CharField(max_length=15)  
+
 
 
 

@@ -17,6 +17,11 @@ from django.contrib import admin
 from django.urls import path, include 
 from rest_framework import routers
 from cadastro.api import viewsets as cadastroviewsets
+from cadastro.views import LoginView
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from django.urls import path, include
+
+
 
 
 
@@ -30,5 +35,10 @@ route.register(r'cadastro', cadastroviewsets.CadastroViewSet, basename="Cadastro
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include(route.urls)) #como eh o diretório principal da aplicação, deixo em branco!
+    path('', include(route.urls)), #como eh o diretório principal da aplicação, deixo em branco!
+    path('login/', LoginView.as_view(), name='login'),
+    path ('token/', TokenObtainPairView.as_view()),
+    path ('token/refresh/', TokenRefreshView.as_view()),
 ]
+
+
